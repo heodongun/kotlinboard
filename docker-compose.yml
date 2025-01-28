@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: docker_postgres
+    environment:
+      POSTGRES_PASSWORD: heodongun
+      POSTGRES_DB: kotlinboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    container_name: docker_redis
+    environment:
+      REDIS_PASSWORD: heodongun0922
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--requirepass", "heodongun0922"]
+
+volumes:
+  postgres_data:
+  redis_data:
