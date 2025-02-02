@@ -20,12 +20,10 @@ class JwtFilter(
         filterChain: FilterChain
     ) {
         var accessToken: String? = request.getHeader("Authorization")
-
         if (accessToken == null || !accessToken.startsWith("Bearer ")) {
             filterChain.doFilter(request, response)
             return
         }
-
         accessToken = accessToken.substring("Bearer ".length)
 
         try {

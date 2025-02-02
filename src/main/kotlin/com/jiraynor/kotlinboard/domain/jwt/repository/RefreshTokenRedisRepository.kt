@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface RefreshTokenRedisRepository : CrudRepository<RefreshTokenEntity, String> {
-    fun existsByEmail(email: String): Boolean
-    fun deleteByEmail(email: String)
-    fun findByEmail(email: String): RefreshTokenEntity?
+    fun existsByToken(token: String): Boolean
+    fun deleteByToken(token: String)
 }

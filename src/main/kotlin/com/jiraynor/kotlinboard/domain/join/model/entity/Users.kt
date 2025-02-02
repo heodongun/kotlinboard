@@ -11,7 +11,6 @@ data class Users (
     @GeneratedValue
     val id: UUID = UUID.randomUUID(), // UUID 타입으로 설정
 
-
     @Column(nullable = false, unique = true)
     val email: String,
 
@@ -21,4 +20,5 @@ data class Users (
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     val role: RoleEnum,
+
     )

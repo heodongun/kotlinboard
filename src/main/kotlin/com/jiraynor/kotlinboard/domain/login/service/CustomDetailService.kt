@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service
 class CustomDetailService(
     private val userRepository: UserRepository
 ) : UserDetailsService {
-
-    @Transactional
     override fun loadUserByUsername(username: String?): UserDetails {
         val userData: Users? =userRepository.findByEmail(username!!)
         if(userData != null){

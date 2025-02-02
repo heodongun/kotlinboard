@@ -8,7 +8,6 @@ import java.time.Duration
 import java.time.LocalDateTime
 
 @Service
-@Transactional
 class AddRefreshEntity(
     private val refreshTokenRedisRepository: RefreshTokenRedisRepository
 ) {

@@ -51,6 +51,8 @@ open class LoginFilter(
             throw AuthenticationServiceException("요청 본문을 읽는 중 오류 발생", e)
         }
 
+        println(email)
+        println(password)
         if (email.isNullOrBlank() || password.isNullOrBlank()) {
             throw BadCredentialsException("이메일 또는 비밀번호가 제공되지 않았습니다.")
         }
@@ -104,7 +106,6 @@ open class LoginFilter(
     }
 
 
-    @Transactional
     open fun addRefreshEntity(uid: String, email: String, refresh: String, expiredMs: Long) {
         val expiryDateTime = LocalDateTime.now().plusNanos(expiredMs * 1_000_000)
         refreshRepository.save(

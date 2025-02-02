@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisHash
 import java.time.LocalDateTime
 
 @RedisHash("RefreshToken")
-data class RefreshTokenEntity(
+class RefreshTokenEntity(
     @Id
     val email: String,
     val token: String,
